@@ -1,5 +1,6 @@
-CHANGES:
-ENTRY BY/ON: Name/Date
+CHANGES: Added 'Mass Import User Records' menu tab
+		 Supports file upload and direct input.
+ENTRY BY/ON: Xinan/26 Dec 2014
 
 CHANGES:
 ENTRY BY/ON: Name/Date

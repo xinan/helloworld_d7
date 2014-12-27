@@ -74,6 +74,46 @@ namespace CVWO\HelloWorld {
 	}
 
 	/**
+	 * Function mass import users
+	 * Implemented this instead of iteratively calling add_user() because
+	 * when error occurs, I can rollback the whole transaction.
+	 *
+	 * @param $entries
+	 * 	An array of entries, each entry is an assoc array and has keys:
+	 * 	name, email, and comment.
+	 * @return
+	 * 	Returns the number of user records sucessfully imported.
+	 */
+	function import_users($entries) {
+		global $user;
+		$username = $user->name;
+		$names = implode(', ', array_map(function($entry) {
+		  return $entry['name'];
+			}, $entries));
+		$message = $username . ' imported ' . count($entries) . ' users: ' . $names;
+		$txn = db\transaction();
+		$amount = 0;
+
+		foreach ($entries as $entry) {
+			try {
+				db\insert(HELLOWORLD_TABLE)->fields(array(
+					'name' => $entry['name'],
+					'email' => $entry['email'],
+					'comment' => $entry['comment'],
+					))->execute();
+					$amount++;
+			} catch (Exception $e) {
+				$txn->rollback();
+				watchdog_exception('type', $e);
+				return FALSE;
+			}
+		}
+
+		$txn->commit($message, IMPORT_AUDIT, MODULE_NAME);
+		return $amount;
+	}
+
+	/**
 	 * Function updates a current user
 	 *
 	 * @param $form_state
@@ -179,9 +219,10 @@ namespace CVWO\HelloWorld {
 		$count = 0;
 		while ($data = $result->fetchAssoc()) {
 			$row = array(
-				$data['name'],
+				// must sanitize before output
+				check_plain($data['name']),
 				$data['email'],
-				$data['comment'],
+				check_plain($data['comment']),
 				get_options($data['helloworld_id']),
 			);
 			$rows[] = $row;

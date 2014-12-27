@@ -1,14 +1,14 @@
 FOUND BUGS
 **********
 
-BUG:
-FOUND BY/ON: Name/Date
+BUG: Used GET to delete entry
+FOUND BY/ON: Xinan/25 Dec 2014
 
 
 
 FIXED BUGS
 **********
 
-BUG:
-FOUND BY/ON: Name/Date
-FIXED BY/ON: Name/Date
+BUG: Did not sanitize 'name' and 'comment' before output
+FOUND BY/ON: Xinan/25 Dec 2014
+FIXED BY/ON: Xinan/25 Dec 2014

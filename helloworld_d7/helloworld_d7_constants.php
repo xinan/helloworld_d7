@@ -21,6 +21,7 @@ namespace CVWO\HelloWorld {
 
 	// Audit Logs
 	const ADD_AUDIT = 'Added user record';
+	const IMPORT_AUDIT = 'Imported user records';
 	const EDIT_AUDIT = 'Edited user record';
 	const DELETE_AUDIT = 'Deleted user record';
 	const LOAD_AUDIT ='Loaded user record';
