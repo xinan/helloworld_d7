@@ -16,4 +16,4 @@ Put the helloworld_d7 folder into /sites/all/modules/[custom/], and then enable 
 A screenshot showing that I have successfully installed Drupal and enabled the Hello World module is attached. 
 
 ### Short Write-Up
-See intro.pdf
+See [intro.pdf](intro.pdf)
