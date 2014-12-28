@@ -6,12 +6,12 @@
  */
 
 namespace CVWO\HelloWorld {
-	require_once drupal_get_path('module', MODULE_NAME) . '/helloworld_d7_api.inc';
+  require_once drupal_get_path('module', MODULE_NAME) . '/helloworld_d7_api.inc';
 
-	/**
-	 * Define the import form
-	 */
-	function helloworld_import_form() {
+  /**
+   * Define the import form
+   */
+  function helloworld_import_form() {
     $example = '<ul><li>One record per line.</li>' .
                '<li>Each line consists of a user’s name followed by their email address. A comma separates the name from the email.</li>' .
                '<li>Note that there should be NO space between the comma and the email address.</li></ul>' .
@@ -51,9 +51,9 @@ namespace CVWO\HelloWorld {
           ),
         ),
     );
-		$form['data'] = array(
-			'#type' => 'textarea',
-			'#title' => t('Enter data below'),
+    $form['data'] = array(
+      '#type' => 'textarea',
+      '#title' => t('Enter data below'),
       '#rows' => 12,
       '#states' => array(
         'visible' => array(
@@ -63,7 +63,7 @@ namespace CVWO\HelloWorld {
           ':input[name="import_method"]' => array('value' => t('Enter data directly')),
           ),
         ),
-		);
+    );
     $form['comment'] = array(
       '#type' => 'textarea',
       '#title' => t('Comment'),
@@ -75,7 +75,7 @@ namespace CVWO\HelloWorld {
       '#value' => 'Import',
     );
     return $form;
-	}
+  }
 
   /**
    * Validate the import form
