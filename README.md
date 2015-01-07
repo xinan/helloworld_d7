@@ -13,7 +13,7 @@ Requires Drupal 7
 Put the helloworld_d7 folder into /sites/all/modules/[custom/], and then enable it from drupal's admin panels.
 
 ### Screenshot
-A screenshot showing that I have successfully installed Drupal and enabled the Hello World module is attached. 
+![Screenshot](Screenshot.png) 
 
 ### Short Write-Up
 See [intro.pdf](intro.pdf)
