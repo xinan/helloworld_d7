@@ -117,6 +117,8 @@ namespace {
 			'type' => MENU_LOCAL_TASK,
 		);
 
+		// Add import menu, share the ADD_USER_PERM
+		// Because add and import are similar actions
 		$items[HelloWorld\MODULE_NAME . '/import'] = array(
 			'title' => 'Mass Import User Records',
 			'page callback' => 'drupal_get_form',

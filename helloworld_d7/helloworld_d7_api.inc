@@ -109,6 +109,8 @@ namespace CVWO\HelloWorld {
 			}
 		}
 
+		// Commit must be after the foreach loop
+		// IMPORT_AUDIT defined in the constants file
 		$txn->commit($message, IMPORT_AUDIT, MODULE_NAME);
 		return $amount;
 	}
